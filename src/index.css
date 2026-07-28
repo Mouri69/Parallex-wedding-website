@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+
+:root {
+  --bg-color: #f9f8f6;
+  --text-primary: #2d2926;
+  --accent-pink: #e2959a;
+  --accent-red: #c34a4a;
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Inter', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+}
+
+/* Typography styles */
+.title {
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 1.1;
+  color: var(--accent-red);
+}
+
+.subtitle {
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: var(--text-primary);
+}
+
+.date-text {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-style: italic;
+  font-family: var(--font-serif);
+  color: var(--accent-pink);
+}
+
+/* Sections */
+section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 4rem 2rem;
+  overflow: hidden;
+}
+
+/* Image Elements */
+.decorative-img {
+  max-width: 150px;
+  object-fit: contain;
+  margin: 2rem 0;
+  mix-blend-mode: multiply; /* Blends nicely with off-white */
+}
+
+/* Button */
+.btn {
+  background-color: transparent;
+  border: 1px solid var(--accent-red);
+  color: var(--accent-red);
+  padding: 1rem 3rem;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 2rem;
+}
+
+.btn:hover {
+  background-color: var(--accent-red);
+  color: var(--bg-color);
+}
