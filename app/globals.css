@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+
+:root {
+  --bg-color: #f9f8f6;
+  --text-primary: #2d2926;
+  --accent-pink: #e2959a;
+  --accent-red: #c34a4a;
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Inter', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+}
+
+.title {
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 1.1;
+  color: var(--accent-red);
+}
+
+.subtitle {
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: var(--text-primary);
+}
+
+.date-text {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-style: italic;
+  font-family: var(--font-serif);
+  color: var(--accent-pink);
+}
+
+.btn {
+  background-color: transparent;
+  border: 1px solid var(--accent-red);
+  color: var(--accent-red);
+  padding: 1rem 3rem;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 2rem;
+}
+
+.btn:hover {
+  background-color: var(--accent-red);
+  color: var(--bg-color);
+}
+
+/* GSAP Specific Layout */
+.gsap-container {
+  position: relative;
+  width: 100%;
+}
+
+.section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem;
+}
+
+.decorative-img {
+  max-width: 150px;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+/* CSS Interactive Envelope */
+.envelope-wrapper {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  background: #d8898f;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  margin-bottom: 2rem;
+  z-index: 5;
+  perspective: 1000px;
+}
+
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 150px solid transparent;
+  border-right: 150px solid transparent;
+  border-top: 130px solid var(--accent-red);
+  transform-origin: top;
+  z-index: 10;
+  /* Will be animated with GSAP rotateX */
+}
+
+/* Add a pseudo element for the back of the flap when it opens */
+.envelope-flap::after {
+  content: '';
+  position: absolute;
+  top: -130px;
+  left: -150px;
+  width: 0;
+  height: 0;
+  border-left: 150px solid transparent;
+  border-right: 150px solid transparent;
+  border-top: 130px solid #a43838;
+  transform: rotateX(180deg);
+  backface-visibility: hidden;
+}
+
+.envelope-front-left {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-top: 100px solid transparent;
+  border-bottom: 100px solid transparent;
+  border-left: 150px solid #c9797e;
+  z-index: 6;
+}
+
+.envelope-front-right {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-top: 100px solid transparent;
+  border-bottom: 100px solid transparent;
+  border-right: 150px solid #e2959a;
+  z-index: 6;
+}
+
+.envelope-front-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 150px solid transparent;
+  border-right: 150px solid transparent;
+  border-bottom: 120px solid #d8898f;
+  z-index: 7;
+}
+
+.envelope-card {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 280px;
+  height: 180px;
+  background: var(--bg-color);
+  border-radius: 5px;
+  z-index: 2; /* Behind the front flaps, under the top flap */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  padding: 1rem;
+  text-align: center;
+}
+
+.envelope-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--accent-red);
+}
+.envelope-card p {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--text-primary);
+  margin-top: 0.5rem;
+}
