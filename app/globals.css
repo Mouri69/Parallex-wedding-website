@@ -196,3 +196,25 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text-primary);
   margin-top: 0.5rem;
 }
+
+/* Glassmorphism Styles */
+.glass-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2), 0 0 20px rgba(255, 192, 203, 0.2);
+  border-radius: 20px;
+  color: white;
+}
+.glass-card h1, .glass-card h2, .glass-card h3, .glass-card p {
+  color: white;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+.glass-panel {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 1rem;
+}
